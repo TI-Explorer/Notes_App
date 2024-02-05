@@ -2,8 +2,11 @@
 
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { useTheme } from '../themes/themeContext';
 
 const AddNoteForm = ({ onAddNote }) => {
+  const { theme } = useTheme();
+
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [folder, setFolder] = useState('');
@@ -26,15 +29,17 @@ const AddNoteForm = ({ onAddNote }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.backgroundColor }]}>
       <TextInput
-        style={styles.input}
+        style={[styles.input, { color: theme.textColor, borderColor: theme.textColor }]}
+        placeholderTextColor={theme.textColor} // Set placeholder text color
         placeholder="Note Title"
         value={title}
         onChangeText={(text) => setTitle(text)}
       />
       <TextInput
-        style={styles.input}
+        style={[styles.input, { color: theme.textColor, borderColor: theme.textColor }]}
+        placeholderTextColor={theme.textColor} // Set placeholder text color
         placeholder="Note Content"
         multiline
         numberOfLines={4}
@@ -42,7 +47,8 @@ const AddNoteForm = ({ onAddNote }) => {
         onChangeText={(text) => setContent(text)}
       />
       <TextInput
-        style={styles.input}
+        style={[styles.input, { color: theme.textColor, borderColor: theme.textColor }]}
+        placeholderTextColor={theme.textColor} // Set placeholder text color
         placeholder="Folder"
         value={folder}
         onChangeText={(text) => setFolder(text)}
@@ -53,6 +59,7 @@ const AddNoteForm = ({ onAddNote }) => {
 };
 
 const styles = StyleSheet.create({
+
   container: {
     padding: 16,
   },
