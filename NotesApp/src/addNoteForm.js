@@ -3,9 +3,12 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
 import { useTheme } from '../themes/themeContext';
+import { useNotes } from './notesContext'; // Import useNotes
+
 
 const AddNoteForm = ({ onAddNote }) => {
   const { theme } = useTheme();
+  const { addNote } = useNotes();
 
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');

@@ -1,20 +1,21 @@
 import React from 'react';
-import { View, FlatList, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet, Text } from 'react-native';
 import NoteItem from './noteItem';
 import { useTheme } from '../themes/themeContext';
-
-const NoteList = ({ notes, onNotePress }) => {
+import { useNotes } from './notesContext';
+const NoteList = ({ onNotePress }) => {
   const { theme } = useTheme();
+  const { notes } = useNotes();
+  
+  
+  
   return (
-    <View style={[styles.container, {backgroundColor: theme.backgroundColor}]}>
-      <FlatList
-        data={notes}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <NoteItem note={item} onPress={onNotePress} />
-        )}
-      />
-    </View>
+    <FlatList
+      data={notes}
+      keyExtractor={(item) => item.id.toString()}
+      renderItem={({ item }) => <NoteItem note={item} onPress={onNotePress} />}
+      // Add any other FlatList props or styling as needed
+    />
   );
 };
 
