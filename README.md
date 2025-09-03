@@ -7,10 +7,10 @@ CSCN 408 notes app
 
 -themes
     -includes all code for themes  
-    -rn just light and dark
+    
 
 -screens
     -includes all different screens
-    -home screen is the list of notes
-    -take note screen is where the user will make a new note
+    -Home screen is the list of notes
+    -Take note screen is where the user will make a new note
 
